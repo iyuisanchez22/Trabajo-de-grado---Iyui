@@ -1,0 +1,1025 @@
+/* ========================================
+   ESTILOS COMUNES - PROYECTO IYUI TESIS
+   ========================================
+   Este archivo contiene todos los estilos compartidos
+   entre las diferentes páginas del proyecto.
+*/
+
+/* ==================== CONTENEDORES DE PÁGINA ==================== */
+
+/* Contenedor principal de página (usado en casi todas las páginas) */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  padding-top: 2.4rem;
+}
+
+.page-que-es-un-bucle,
+.page-comprueba-conceptualizacion,
+.page-practicar-conceptualizacion,
+.page-inicio,
+.page-actividad-recreativa,
+.page-que-es-un-bucle-for,
+.page-practicar-bucle-for,
+.page-comprueba-bucle-for,
+.page-que-es-un-bucle-while,
+.page-practicar-bucle-while,
+.page-comprueba-bucle-while {
+  position: relative;
+  width: 100%;
+}
+
+.page-que-es-un-bucle::before,
+.page-comprueba-conceptualizacion::before,
+.page-practicar-conceptualizacion::before,
+.page-inicio::before,
+.page-actividad-recreativa::before,
+.page-que-es-un-bucle-for::before,
+.page-practicar-bucle-for::before,
+.page-comprueba-bucle-for::before,
+.page-que-es-un-bucle-while::before,
+.page-practicar-bucle-while::before,
+.page-comprueba-bucle-while::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--page-bg);
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-que-es-un-bucle > *,
+.page-comprueba-conceptualizacion > *,
+.page-practicar-conceptualizacion > *,
+.page-inicio > *,
+.page-actividad-recreativa > *,
+.page-que-es-un-bucle-for > *,
+.page-practicar-bucle-for > *,
+.page-comprueba-bucle-for > *,
+.page-que-es-un-bucle-while > *,
+.page-practicar-bucle-while > *,
+.page-comprueba-bucle-while > * {
+  position: relative;
+  z-index: 1;
+}
+/* ==================== TÍTULOS Y TEXTOS ==================== */
+
+/* Título principal de página (h2) */
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+/* Subtítulo de página (h3) */
+.page-subtitle {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  max-width: 55rem;
+  text-align: center;
+  color: rgb(34, 34, 34);
+}
+
+/* Descripción general */
+.page-description {
+  font-size: 1.4rem;
+  margin: 0 2rem;
+  text-align: center;
+  color: rgb(60, 60, 60);
+  max-width: 55rem;
+}
+
+/* Descripción más grande */
+.page-description--large {
+  font-size: 1.6rem;
+  color: rgb(34, 34, 34);
+}
+
+/* ==================== BOTONES ==================== */
+
+/* Botón estándar con efecto hover */
+.btn-standard {
+  min-height: 6rem;
+  width: 100%;
+  max-width: 60rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  transition: 0.1s ease-in;
+  position: relative;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  word-wrap: break-word;
+  color: black;
+}
+
+.btn-standard:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background-color: rgb(230, 230, 230);
+  color: rgb(100, 100, 100);
+  box-shadow: none;
+}
+
+/* Override ::after for the Comprueba Bucle While submit button */
+.page-comprueba-bucle-while__submit {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-comprueba-bucle-while__submit-btn::after {
+  content: none;
+}
+
+.page-comprueba-bucle-while__submit-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.page-comprueba-bucle-while__submit .btn-standard__bg {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: 0;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.page-comprueba-bucle-while__submit:hover:not(.selected) .btn-standard__bg {
+  width: calc(100% + 4px);
+}
+
+.page-comprueba-bucle-while__submit-btn:active + .btn-standard__bg {
+  background-color: rgb(73, 73, 73);
+}
+
+.page-comprueba-bucle-while__submit-btn.selected + .btn-standard__bg {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-comprueba-bucle-while__submit-btn:disabled + .btn-standard__bg {
+  width: 0;
+  background-color: transparent;
+}
+
+/* Override ::after for the Comprueba Conceptualizacion submit button */
+.page-comprueba-conceptualizacion__submit-btn::after {
+  content: none;
+}
+
+/* Override ::after for the Actividad Recreativa submit button */
+.page-actividad-recreativa__submit {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-actividad-recreativa__submit-btn::after {
+  content: none;
+}
+
+.page-actividad-recreativa__submit-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.page-actividad-recreativa__submit .btn-standard__bg {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: 0;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.page-actividad-recreativa__submit:hover:not(.selected) .btn-standard__bg {
+  width: calc(100% + 4px);
+}
+
+.page-actividad-recreativa__submit-btn:active + .btn-standard__bg {
+  background-color: rgb(73, 73, 73);
+}
+
+.page-actividad-recreativa__submit-btn.selected + .btn-standard__bg {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-actividad-recreativa__submit-btn:disabled + .btn-standard__bg {
+  width: 0;
+  background-color: transparent;
+}
+
+.page-comprueba-bucle-for__submit-btn {
+  min-width: 60rem;
+}
+
+/* ==================== GRIDS DE BOTONES ==================== */
+
+/* Grid de opciones/pestañas */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  width: 80dvw;
+  max-width: 55rem;
+  gap: 1.6rem;
+}
+
+/* Grid más pequeño */
+.btn-grid--small {
+  max-width: 45rem;
+  gap: 2.4rem;
+}
+
+/* ==================== CONTENEDORES DE CONTENIDO ==================== */
+
+/* Contenedor de contenido seleccionado con border */
+.content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 80dvw;
+  max-width: 55rem;
+  min-height: 12rem;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid rgb(73, 73, 73);
+  background-color: #fff;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Texto dentro del content-box */
+.content-box__text {
+  font-size: 1.4rem;
+  color: rgb(60, 60, 60);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== CARDS ==================== */
+
+/* Card genérica (usada en niveles, preguntas, etc.) */
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  border-radius: 8px;
+  background-color: rgb(246, 246, 246);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgb(133, 133, 133);
+}
+
+/* Título de card */
+.card__title {
+  width: 100%;
+  font-size: 1.8rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+  text-align: center;
+}
+
+/* Título de card más pequeño (para preguntas) */
+.card__title--small {
+  font-size: 1.5rem;
+}
+
+/* Texto de card */
+.card__text {
+  font-size: 1.3rem;
+  margin: 0 6rem;
+  color: rgb(60, 60, 60);
+  text-align: center;
+}
+
+/* ==================== LISTAS DE CARDS ==================== */
+
+/* Contenedor de lista de cards (niveles, cuestionarios, etc.) */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 60rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Iframe container for embedded forms with same sizing as card-list */
+.page-comprueba-conceptualizacion__iframe-container,
+.page-comprueba-bucle-for__iframe-container,
+.page-comprueba-bucle-while__iframe-container,
+.page-actividad-recreativa__iframe-container {
+  width: 100%;
+  max-width: 60rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.page-comprueba-conceptualizacion__iframe-container iframe,
+.page-comprueba-bucle-for__iframe-container iframe,
+.page-comprueba-bucle-while__iframe-container iframe,
+.page-actividad-recreativa__iframe-container iframe {
+  width: 100%;
+  height: 64rem;
+  border: 0;
+  border-radius: 8px;
+}
+
+/* ==================== BOTONES DE CAMARA Y ESCÁNER ==================== */
+
+.btn-scanner-card {
+  background: linear-gradient(140deg, #1f2dff, #6c63ff, #1f2dff);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.6rem;
+  box-sizing: content-box;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-scanner-card:hover {
+  background-position: 100% 50%;
+}
+
+/* left-side scanner matches advance-info button colors */
+.btn-scanner-card--left {
+  background: linear-gradient(140deg, #ff6b35, #ff9a5c, #ff6b35);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+}
+
+.btn-scanner-card--left:hover {
+  background-position: 100% 50%;
+}
+
+.btn-scanner-solution-wrapper {
+  position: relative;
+}
+
+.btn-scanner-solution-label {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  color: #d46239;
+  text-align: center;
+  width: 5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.btn-scanner-card img {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: invert(100%);
+  transition: 0.1s ease;
+}
+
+.page-practicar-conceptualizacion__nivel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* removed .page-practicar-conceptualizacion__nivel-actions - container removed from JSX */
+
+.btn-cam-fixed {
+  position: fixed;
+  left: 2.4rem;
+  bottom: 2.4rem;
+  z-index: 1000;
+  background: linear-gradient(140deg, #1f2dff, #6c63ff, #1f2dff);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.6rem;
+  box-sizing: content-box;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-cam-fixed:hover {
+  background-position: 100% 50%;
+}
+
+.btn-cam-fixed img {
+  width: 2.4rem;
+  height: 2.4rem;
+  transition: 0.2s ease;
+  filter: invert(100%);
+}
+
+.btn-advance-info-fixed {
+  position: fixed;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  z-index: 1000;
+  background: linear-gradient(140deg, #ff6b35, #ff9a5c, #ff6b35);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.6rem;
+  box-sizing: content-box;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-advance-info-fixed:hover {
+  background-position: 100% 50%;
+}
+
+.btn-advance-info-fixed img {
+  width: 2.4rem;
+  height: 2.4rem;
+  transition: 0.2s ease;
+  filter: invert(100%);
+}
+
+.marker-popup {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 2000;
+}
+
+.marker-popup__content {
+  width: 100%;
+  max-width: 52rem;
+  background-color: rgb(246, 246, 246);
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.marker-popup__title {
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  color: rgb(34, 34, 34);
+}
+
+.marker-popup__media {
+  width: 100%;
+  min-height: 22rem;
+  background-color: rgb(255, 255, 255);
+  border: 2px dashed rgb(180, 180, 180);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marker-popup__img {
+  width: 100%;
+  height: auto;
+  max-height: 65dvh;
+  object-fit: contain;
+}
+
+.marker-popup__placeholder {
+  font-size: 1.2rem;
+  color: rgb(100, 100, 100);
+  text-align: center;
+  font-style: italic;
+}
+
+.advance-info-modal {
+  max-width: 60rem;
+}
+
+.advance-info-modal__title {
+  color: #d46239;
+}
+
+.advance-info-modal__text {
+  max-height: 60dvh;
+  overflow-y: auto;
+  padding: 1.2rem;
+  background-color: rgb(250, 250, 250);
+  border-radius: 6px;
+  line-height: 1.6;
+  color: rgb(34, 34, 34);
+  border: 2px dashed rgb(180, 180, 180);
+}
+
+.advance-info-modal__text p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ==================== PLACEHOLDERS ==================== */
+
+/* Placeholder para actividades (imágenes, videos, juegos, etc.) */
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 15rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  border: 2px dashed rgb(180, 180, 180);
+  font-size: 1.4rem;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+  text-align: center;
+}
+
+.placeholder iframe {
+  width: 100%;
+  height: 58.6rem;
+  border-radius: 8px;
+}
+
+.placeholder img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Placeholder más pequeño para audio */
+.placeholder--small {
+  min-height: 8rem;
+}
+
+.placeholder--small audio {
+  width: 100%;
+}
+
+/* ==================== CONTENEDORES DE MULTIMEDIA ==================== */
+
+/* Contenedor de video/imagen/actividad */
+.media-container {
+  width: 80dvw;
+  max-width: 55rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== VIDEO EMBEDS ==================== */
+
+.media-video {
+  width: 80dvw;
+  height: auto;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 55rem;
+  background-color: rgb(246, 246, 246);
+  border: 2px dashed rgb(180, 180, 180);
+  display: flex;
+  justify-content: center;
+}
+
+.media-video__embed {
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 20rem;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==================== FEEDBACK ==================== */
+
+/* Contenedor de feedback */
+.feedback {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(73, 73, 73);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Texto de feedback */
+.feedback__text {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 1.6rem;
+  color: rgb(60, 60, 60);
+  text-align: center;
+}
+
+/* ==================== CITAS Y QUOTES ==================== */
+
+/* Caja de cita/quote */
+.quote {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin: 0;
+  padding: 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  color: rgb(60, 60, 60);
+  border-left: 4px solid rgb(73, 73, 73);
+  background-color: rgb(250, 250, 250);
+  border-radius: 4px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Quote más pequeña (para citas) */
+.quote--small {
+  font-size: 1.1rem;
+  color: rgb(80, 80, 80);
+}
+
+/* Enlaces en quotes */
+.quote a {
+  color: rgb(40, 100, 200);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.quote a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== ACTIVIDAD RECREATIVA ==================== */
+
+.page-actividad-recreativa__enunciados {
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-actividad-recreativa__enunciado-titulo {
+  font-size: 1.6rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-actividad-recreativa__enunciado-texto {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+}
+
+.page-comprueba-conceptualizacion__enunciados {
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-comprueba-conceptualizacion__enunciado-titulo {
+  font-size: 1.6rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-comprueba-conceptualizacion__enunciado-texto {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+}
+
+.page-comprueba-bucle-for__enunciados {
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-comprueba-bucle-for__enunciado-titulo {
+  font-size: 1.6rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-comprueba-bucle-for__enunciado-texto {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+}
+
+.page-comprueba-bucle-while__enunciados {
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-comprueba-bucle-while__enunciado-titulo {
+  font-size: 1.6rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-comprueba-bucle-while__enunciado-texto {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+}
+
+/* ==================== OPCIONES (RADIO/CHECKBOXES) ==================== */
+
+/* Contenedor de opciones */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Opción individual */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(200, 200, 200);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.option:hover {
+  border-color: rgb(150, 150, 150);
+  background-color: rgb(250, 250, 250);
+}
+
+.option.selected {
+  border-color: rgb(73, 73, 73);
+  background-color: rgb(240, 240, 240);
+}
+
+.option.correct {
+  border-color: rgb(76, 175, 80);
+  background-color: rgb(232, 245, 233);
+}
+
+.option.incorrect {
+  border-color: rgb(244, 67, 54);
+  background-color: rgb(255, 235, 238);
+}
+
+/* Input radio dentro de opción */
+.option input[type="radio"] {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  accent-color: rgb(73, 73, 73);
+}
+
+/* Texto de opción */
+.option__text {
+  font-size: 1.3rem;
+  color: rgb(60, 60, 60);
+}
+
+/* ==================== PREGUNTAS (PARA COMPRENSIÓN) ==================== */
+
+/* Contenedor de preguntas dentro de un cuadro */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Pregunta individual */
+.question-item {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  text-align: left;
+  padding-left: 1rem;
+}
+
+/* ==================== INFO BOX ==================== */
+
+/* Caja de información general */
+.info-box {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  border: 2px solid rgb(133, 133, 133);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==================== DRAG & DROP GAME ==================== */
+
+.drag-game {
+  width: 100%;
+  max-width: 55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.drag-game__intro {
+  margin: 0;
+  font-size: 1.2rem;
+  color: rgb(60, 60, 60);
+  text-align: center;
+}
+
+.drag-game__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.6rem;
+}
+
+.drag-game__column {
+  background-color: rgb(246, 246, 246);
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 8px;
+  padding: 1.6rem;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drag-game__column-title,
+.drag-game__pool-title {
+  margin: 0;
+  font-size: 1.4rem;
+  color: rgb(34, 34, 34);
+  text-align: center;
+}
+
+.drag-game__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drag-game__items--images {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.drag-game__items--pool.drag-game__items--images {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.drag-game__items--pool {
+  background-color: rgb(250, 250, 250);
+  border-radius: 8px;
+  padding: 1.2rem;
+  border: 2px dashed rgb(200, 200, 200);
+}
+
+.drag-game__pool {
+  background-color: rgb(246, 246, 246);
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 8px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drag-game__placeholder {
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgb(120, 120, 120);
+  font-style: italic;
+  text-align: center;
+}
+
+.drag-item {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(200, 200, 200);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  color: rgb(60, 60, 60);
+  cursor: grab;
+  transition: 0.2s ease;
+}
+
+.drag-item--image {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-item__image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.drag-item:active {
+  cursor: grabbing;
+}
+
+.drag-item--correct {
+  border-color: rgb(76, 175, 80);
+  background-color: rgb(232, 245, 233);
+}
+
+.drag-item--incorrect {
+  border-color: rgb(244, 67, 54);
+  background-color: rgb(255, 235, 238);
+}
+
+.drag-game__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.drag-game__feedback {
+  width: 100%;
+}
+
+.hf87y302yhnf {
+  display: none;
+}

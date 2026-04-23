@@ -1,0 +1,202 @@
+/* ============================================
+   BUTTON NAV STYLES
+   ============================================ */
+
+.button-nav-wrapper {
+  color: #e1e3ff;
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+.button-nav-wrapper.dropdown-active::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 15px;
+  background: transparent;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.btn-nav {
+  font-size: 1rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  cursor: pointer;
+  min-width: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.btn-nav--locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-nav--locked::after {
+  transform: scaleX(0) !important;
+}
+
+.btn-nav-lock-icon {
+  filter: invert(100%);
+  width: 14px;
+  height: 14px;
+  margin-left: 0.35rem;
+  opacity: 0.85;
+}
+
+.arrow-btn-nav--locked {
+  opacity: 0.85;
+}
+
+.btn-nav::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #e1e3ff;
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.btn-nav:hover::after,
+.btn-nav.dropdown-open::after,
+.btn-nav--active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-nav span {
+  display: flex;
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.arrow-btn-nav {
+  filter: invert(100%);
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+
+.arrow-btn-nav.arrow-rotated {
+  transform: scaleY(-1);
+}
+
+/* ============================================
+   DROPDOWN STYLES
+   ============================================ */
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  min-width: 400px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translate(-50%, -10px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-content.dropdown-open {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: all;
+}
+
+.dropdown-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dropdown-inner a,
+.dropdown-inner .dropdown-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-inner a:hover div img {
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}
+
+.dropdown-inner a div img {
+  height: 0;
+  opacity: 0;
+  width: 0;
+  transition: 0.2s ease;
+}
+
+.dropdown-inner a p,
+.dropdown-inner .dropdown-link p {
+  color: black;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dropdown-inner a div,
+.dropdown-inner .dropdown-link div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.dropdown-inner a span,
+.dropdown-inner .dropdown-link span {
+  font-size: 0.8rem;
+  color: #777777;
+}
+
+.dropdown-link--locked {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.dropdown-link--locked div img {
+  display: none;
+}
+
+.dropdown-lock-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 0.2rem;
+  opacity: 0.85;
+}

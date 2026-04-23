@@ -1,0 +1,72 @@
+.card-pseudo {
+  background-color: rgb(246, 246, 246);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 90dvw;
+  max-width: 60rem;
+  padding: 1rem;
+  border-radius: 8px;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cont-content-pseudo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-pseudo .explain {
+  height: 100%;
+  width: 40%;
+  font-size: 1.4rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.cont-content-pseudo div {
+  width: 40%;
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Movil*/
+@media (max-width: 768px) {
+  .cont-content-pseudo {
+    flex-direction: column;
+  }
+
+  .card-pseudo .explain {
+    width: 100%;
+  }
+
+  .cont-content-pseudo div {
+    width: 100%;
+  }
+}
+
+.cont-content-pseudo div h4 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+.cont-content-pseudo img {
+  padding: 1rem;
+  height: 10rem;
+}
+
+.cont-content-pseudo div span {
+  font-size: 1.2rem;
+}
+
+pre {
+  margin: 0 !important;
+}
